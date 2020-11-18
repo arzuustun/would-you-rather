@@ -24,19 +24,19 @@ return(
  
  <div className='leader-board-center'>
  <h2>{user.name}</h2>
-<h5>Answered Questions
+<h5>Answered Questions &nbsp;
 <span> {user.answeredQuestions}</span>
 </h5>
 <hr></hr>
-<h5> Created Questions
+<h5> Created Question &nbsp; &nbsp;&nbsp; &nbsp;&nbsp;
     <span>{user.createdQuestions}</span>
 </h5>
-
-</div>
 <div className='leader-board-right'>
     <h5>Score</h5> 
     <h2>{user.score}</h2>
 </div>
+</div>
+
 </div>
 ))}
 </Fragment>

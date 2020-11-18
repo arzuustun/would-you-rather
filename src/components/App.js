@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import { handleInitialData } from '../actions/shared'
 import LeaderBoard from './LeaderBoard';
-import NotFound from './NotFound'
+import Home from './Home'
 class App extends Component {
   componentDidMount() {
     this.props.dispatch(handleInitialData())
@@ -10,7 +10,7 @@ class App extends Component {
   render() {
     return (
       <div>
-     <LeaderBoard/>
+     <Home/>
       </div>
     )
   }

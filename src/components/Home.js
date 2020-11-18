@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { withRouter } from 'react-router-dom';
+// import { withRouter } from 'react-router-dom';
+import { Button, ButtonGroup,ListGroup, ListGroupItem ,Media} from 'reactstrap';
 
 class Home extends Component {
     state={
@@ -42,52 +43,51 @@ class Home extends Component {
 
     return (
       <div className='center'>
-        <div>
-        <button onClick = { this.handleUnansweredQuestions }>
+        <ButtonGroup>
+        <Button className='home-buttons'onClick = { this.handleUnansweredQuestions }>
         Unanswered Questions
-        </button>
-        <button onClick = { this.handleAnsweredQuestions }> 
+        </Button>
+        <Button className='home-buttons' onClick = { this.handleAnsweredQuestions }> 
         Answered Questions
-        </button>
+        </Button>
         
-        </div>
-        <div>
+        </ButtonGroup>
+        <ListGroup className='home-list-group-item'>
         {
           questionList.map(question=> (
-            <div key = { question.id } > 
-            <div>
+            <ListGroupItem key = { question.id } > 
+            <ListGroupItem>
             {users[question.author].name} asks:
-            </div>
-            <div>
-            <img
+            </ListGroupItem>
+            <Media body> 
+            <Media
               alt={ users[question.author].id }
               src={ users[question.author].avatarURL }
               className='avatar'
              />
-            </div>
-            <div> 
-            <span>
+            
+            <Media heading>
             Would you rather
-            </span>
+            </Media>
             <br /> <br />
             <span>
           ... {question.optionOne.text.substring(0,15)  } ...
             </span>
             <br /> <br />
-            <button  > 
+            <Button color="success"  > 
               {/* onClick ={(e) => this.handleViewPoll(e, question.id)} */}
 
               View Poll
-            </button>
-            </div>
+            </Button>
+            </Media>
 
 
-            </div>
+            </ListGroupItem>
           ))
 
         }
 
-        </div>
+        </ListGroup>
       </div>
     )
   }

@@ -60,4 +60,14 @@ code {
   display: inline-block;
   
 }
+.home-buttons{
+  width: 350px;
+  height: 45px;
+}
+.home-list-group-item{
+  width: 700px;
+  height: 395px;
+  margin:auto;
+
+}
 

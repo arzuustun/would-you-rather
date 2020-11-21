@@ -1,5 +1,5 @@
 export const SET_AUTHED_USER='SET_AUTHED_USER'
-export const RESET_AUTHED_USER = 'RESET_AUTHED_USER';
+//export const RESET_AUTHED_USER = 'RESET_AUTHED_USER';
 
 export function setAuthedUser (id) {
   return {
@@ -8,8 +8,8 @@ export function setAuthedUser (id) {
   }
 } 
 
-export function reSetAuthedUser(id) {
-	return {
-		type: RESET_AUTHED_USER
-	};
-}
+// export function reSetAuthedUser(id) {
+// 	return {
+// 		type: RESET_AUTHED_USER
+// 	};
+// }

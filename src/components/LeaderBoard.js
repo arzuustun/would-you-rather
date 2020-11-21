@@ -1,14 +1,14 @@
 import React, { Component, Fragment } from 'react';
 import { connect } from 'react-redux';
-// import { Redirect } from 'react-router-dom';
+import { Redirect } from 'react-router-dom';
 
 class LeaderBoard extends Component{
 render(){
 	const { users, authedUser } = this.props;
 
-      	// if (authedUser === null) {
-        //   return <Redirect to='/' />
-        // }
+      	if (authedUser === null) {
+          return <Redirect to='/' />
+        }
 
 return(
 <Fragment>
@@ -59,7 +59,7 @@ function mapStateToProps({users, authedUser}){
           })
       }
   )
-
+console.log(usersArray)
   return {
       users: usersArray.sort((a,b) => b.score - a.score),
       authedUser

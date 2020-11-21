@@ -70,4 +70,63 @@ code {
   margin:auto;
 
 }
+.home-div{
+  
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+}
+.media-body{
+  display: flex !important;
 
+}
+.home-button{
+  margin-top: 10px;
+}
+/* .nav-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding-top: 10px;
+}
+ */
+.nav{
+  background: rgb(238,174,202);
+background: radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%);
+height: 40px;
+}
+.nav li {
+  padding-bottom: 0px;
+  padding-right: 30px;
+}
+.nav ul {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  text-decoration: none;
+  margin-bottom: 0px;
+}
+
+.nav li{
+  padding-left: 0;
+  padding-bottom: 0px;
+  padding-right: 30px;
+}
+
+.nav-user {
+  padding-top: 2px;
+  margin-left: 100px;
+  padding-right: 10px !important;
+}
+
+.nav-user-img {
+  width: 25px;
+  height: 25px;
+  margin-right: 10px;
+  margin-left: 15px;
+  vertical-align: bottom;
+}
+.nav-log-out {
+  padding-top: 7px;
+}

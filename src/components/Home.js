@@ -65,20 +65,23 @@ class Home extends Component {
               src={ users[question.author].avatarURL }
               className='avatar'
              />
-            
+            <div className="home-div">
             <Media heading>
             Would you rather
             </Media>
-            <br /> <br />
             <span>
           ... {question.optionOne.text.substring(0,15)  } ...
             </span>
-            <br /> <br />
-            <Button color="success"  > 
+            <Button color="success" className="home-button" > 
               {/* onClick ={(e) => this.handleViewPoll(e, question.id)} */}
+
+
+
 
               View Poll
             </Button>
+            </div>
+           
             </Media>
 
 
@@ -95,13 +98,14 @@ class Home extends Component {
 
 function mapStateToProps ({ questions, users, authedUser }) {
   return {
-    //    	answeredQuestions: Object.values(questions).filter(qid => qid.optionOne.votes.includes(authedUser) 
+  	// answeredQuestions: Object.values(questions).filter(qid => qid.optionOne.votes.includes(authedUser) 
     //                                                        || qid.optionTwo.votes.includes(authedUser))
     //   													   .sort((a,b) => b.timestamp - a.timestamp),
     // unansweredQuestions: Object.keys(questions)
     //                       .filter((id) => !users[authedUser].answers.includes(id))
 
     //                       .sort((a, b) => b.timestamp - a.timestamp),
+
     users,
    authedUser,
    answeredQuestions: Object.values(questions).filter(quesId => quesId.optionOne.votes.includes(authedUser) || quesId.optionTwo.votes.includes(authedUser))

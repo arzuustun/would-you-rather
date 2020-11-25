@@ -35,8 +35,8 @@ class NavBar extends Component {
                 </NavItem>
 
           		{user && (
-          		  <Fragment className="nav-item">
-                    <NavItem className="margin">
+          		  <div className="nav-item">
+                    <NavItem className="nav-item-hello margin">
                       Hello, {user.name}    
                       <img 
                           src={user.avatarURL} 
@@ -47,18 +47,18 @@ class NavBar extends Component {
                     <NavItem>
 					  <button 
 						onClick={this.handleLogOut}
-						className='logout-btn'
+            className='logout-btn'
 					  >
 						Logout
 					  </button>
                     </NavItem>
-				  </Fragment>
+				  </div>
         		)}
               </Nav>
         );
     }
 } 
-
+console.log("setout",setAuthedUser)
 function mapStateToProps ({ users, authedUser }) {
     return {
       user:authedUser

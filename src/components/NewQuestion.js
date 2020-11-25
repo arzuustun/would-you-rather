@@ -52,7 +52,7 @@ render(){
         }
 
     return(
-        <ListGroup className='home-list-group'> 
+        <ListGroup className='home-list-group margin-top'> 
         <ListGroupItem>Create New Question 
             <br/>
         <h6 className='new-question-h6' >Complete the question: 

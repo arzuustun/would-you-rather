@@ -46,9 +46,10 @@ render()
         const { user,goToHome} = this.state;
         const { users,authedUser} = this.props;
         
-        if (goToHome || authedUser) {
+        if (goToHome || !!authedUser) {
         	return <Home />
         }
+        
 		return (
 			<div>
                 <div className='login-list-group font-size'>Welcome to the Would You Rather App! <br/> <br/>

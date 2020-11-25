@@ -58,8 +58,8 @@ class Question extends Component{
             </div>
             <FormControl component="fieldset">
             <RadioGroup onChange={this.handleChange}>
-                <FormControlLabel value={question.optionOne.text} control={<Radio />} label={question.optionOne.text } onChange={this.handleChange}  />
-                <FormControlLabel value={question.optionTwo.text}  control={<Radio />} label={question.optionTwo.text } onChange={this.handleChange}  />
+                <FormControlLabel value="optionOne" control={<Radio />} label={question.optionOne.text } onChange={this.handleChange}  />
+                <FormControlLabel value="optionTwo"  control={<Radio />} label={question.optionTwo.text } onChange={this.handleChange}  />
             </RadioGroup>
             </FormControl>
             <Button 

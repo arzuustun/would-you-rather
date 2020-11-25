@@ -19,24 +19,24 @@ class NavBar extends Component {
     	return(
               <Nav>
                 <NavItem>
-                  <NavLink to='/' exact activeClassName='active'>
+                  <NavLink  className="nav-item" to='/' exact>
                     Home
                   </NavLink>
                 </NavItem>
                 <NavItem>
-                  <NavLink to='/add' activeClassName='active'>
+                  <NavLink to='/new'>
                     New Question
                   </NavLink>
                 </NavItem>
                 <NavItem>
-                  <NavLink to='/leaderboard' activeClassName='active'>
+                  <NavLink to='/leaderboard'>
                     Leader Board
                   </NavLink>
                 </NavItem>
 
           		{user && (
-          		  <Fragment>
-                    <NavItem>
+          		  <Fragment className="nav-item">
+                    <NavItem className="margin">
                       Hello, {user.name}    
                       <img 
                           src={user.avatarURL} 

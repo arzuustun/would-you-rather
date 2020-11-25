@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-// import { withRouter } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 import { Button, ButtonGroup,ListGroup, ListGroupItem ,Media} from 'reactstrap';
-
+import Login from './Login';
 class Home extends Component {
     state={
       answered:false,
@@ -22,20 +22,21 @@ class Home extends Component {
           answered: true,
         });
       }
-      // handleViewPool = ( e,id ) => {
-      //   e.preventDefault();
 
-      //   this.history.push(`/questions/${id}`)
-      // }
+      handleViewPool = ( e, id ) => {
+        e.preventDefault();
+
+        this.props.history.push(`/questions/${id}`)
+      }
 
 
   render() {
-    const { unansweredQuestions, answeredQuestions, users} = this.props;
+    const { unansweredQuestions, answeredQuestions, users,autedUser} = this.props;
     const { answered } = this.state;
 
     let questionList=unansweredQuestions;
      
-   // if (autedUser===null) { return <Login/>}
+    if (autedUser===null) { return <Login/>}
 
    if ( answered ) {
      questionList = answeredQuestions;
@@ -44,7 +45,7 @@ class Home extends Component {
     return (
       <div className='center'>
         <ButtonGroup>
-        <Button className='home-buttons'onClick = { this.handleUnansweredQuestions }>
+        <Button className='home-buttons' onClick = { this.handleUnansweredQuestions }>
         Unanswered Questions
         </Button>
         <Button className='home-buttons' onClick = { this.handleAnsweredQuestions }> 
@@ -72,19 +73,13 @@ class Home extends Component {
             <span>
           ... {question.optionOne.text.substring(0,15)  } ...
             </span>
-            <Button color="success" className="home-button" > 
-              {/* onClick ={(e) => this.handleViewPoll(e, question.id)} */}
-
-
-
-
+            <Button color="success" 
+                    className="home-button"
+                    onClick ={(e) => this.handleViewPool(e, question.id)} > 
               View Poll
             </Button>
             </div>
-           
             </Media>
-
-
             </ListGroupItem>
           ))
 
@@ -98,15 +93,7 @@ class Home extends Component {
 
 function mapStateToProps ({ questions, users, authedUser }) {
   return {
-  	// answeredQuestions: Object.values(questions).filter(qid => qid.optionOne.votes.includes(authedUser) 
-    //                                                        || qid.optionTwo.votes.includes(authedUser))
-    //   													   .sort((a,b) => b.timestamp - a.timestamp),
-    // unansweredQuestions: Object.keys(questions)
-    //                       .filter((id) => !users[authedUser].answers.includes(id))
-
-    //                       .sort((a, b) => b.timestamp - a.timestamp),
-
-    users,
+   users,
    authedUser,
    answeredQuestions: Object.values(questions).filter(quesId => quesId.optionOne.votes.includes(authedUser) || quesId.optionTwo.votes.includes(authedUser))
                                               .sort((a,b) => b.timestamp - a.timestamp),
@@ -117,4 +104,4 @@ function mapStateToProps ({ questions, users, authedUser }) {
 }
 
 
-export default connect(mapStateToProps)(Home) ;
+export default withRouter(connect(mapStateToProps)(Home)) ;

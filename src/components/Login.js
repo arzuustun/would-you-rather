@@ -3,6 +3,14 @@ import { connect } from 'react-redux';
 import Home from './Home';
 import { setAuthedUser } from '../actions/authedUser';
 import Select from 'react-select';
+import { withRouter } from 'react-router-dom';
+
+const imageUserLabel=({ name, avatarURL }) => (
+    <div className='login-single-user'>
+        <img src={avatarURL} alt={name} className='login-img-user' />
+      {name}
+    </div>
+  );
 class Login extends Component{
     state={
         user: '',
@@ -43,24 +51,30 @@ render()
         }
 		return (
 			<div>
-                <h3>Welcome to the Would You Rather App!</h3>
-                <h6>Please sign in to continue</h6>
-                <hr/>
-                <h2>Sign In</h2>
+                <div className='login-list-group font-size'>Welcome to the Would You Rather App! <br/> <br/>
+                <h6>Please sign in to continue</h6><br/>
+                <h2>Sign In</h2><br/>
+                </div>
+               
+                <div className='home-list-group-item'>
                 <Select
                 onChange={this.handleOnChange} 
+                formatOptionLabel={imageUserLabel}
                 options={users} 
                 getOptionLabel={(option)=>option.id}
-                   getOptionValue={(option)=>option.name}
+                getOptionValue={(option)=>option.name}
                 placeholder='Select User'
                 isSearchable={false}
                 />
-                <button 
+                <br/> <br/>
+                <button color="success" 
+                    className="login-sign-in"
                     type='submit'
 			        disabled={user === ''}
 					onClick={this.handleSubmit}>
                     Sign In
                 </button>
+            </div>
             </div>
 		);
     
@@ -74,4 +88,4 @@ function mapStateToProps ({ users,authedUser}, {id}) {
 	}
 }
 
-export default connect(mapStateToProps)(Login)
+export default withRouter(connect(mapStateToProps)(Login));

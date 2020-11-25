@@ -10,11 +10,11 @@ export function receiveUsers (users) {
 
 } 
 
-export function answerQuestionToUser (authedUser, quesId, answer) {
+export function answerQuestionToUser (authedUser, qId, answer) {
 	return {
     	type: ANSWER_QUESTION_TO_USER,
       	authedUser,
-      	quesId,
+      	qId,
       	answer
     }
 }

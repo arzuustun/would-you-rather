@@ -9,6 +9,7 @@ import {
   Media,
 } from "reactstrap";
 import Login from "./Login";
+
 class Home extends Component {
   state = {
     answered: false,
@@ -45,7 +46,6 @@ class Home extends Component {
     const { answered } = this.state;
 
     let questionList = unansweredQuestions;
-    console.log("ww", authedUser);
     if (authedUser === null) {
       return <Login />;
     }
@@ -73,7 +73,7 @@ class Home extends Component {
         <ListGroup className="home-list-group-item">
           {questionList.map((question) => (
             <ListGroupItem key={question.id}>
-              <ListGroupItem>{users[question.author].name} asks:</ListGroupItem>
+              <div className="a-size" >{users[question.author].name} asks:</div>
               <Media body>
                 <Media
                   alt={users[question.author].id}

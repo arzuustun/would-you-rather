@@ -2,7 +2,7 @@ import React, { Component, Fragment } from 'react';
 import { connect } from 'react-redux';
 import { NavLink, withRouter } from 'react-router-dom';
 import { setAuthedUser } from '../actions/authedUser';
-import { Nav,NavItem} from 'reactstrap';
+import { Nav,NavItem,Button} from 'reactstrap';
 
 class NavBar extends Component {
   	handleLogOut = (e) => {
@@ -19,17 +19,17 @@ class NavBar extends Component {
     	return(
               <Nav>
                 <NavItem>
-                  <NavLink  className="nav-item" to='/' exact>
+                  <NavLink  className="nav-item-home" to='/' exact>
                     Home
                   </NavLink>
                 </NavItem>
                 <NavItem>
-                  <NavLink to='/new'>
+                  <NavLink  className="nav-item-other" to='/new'>
                     New Question
                   </NavLink>
                 </NavItem>
                 <NavItem>
-                  <NavLink to='/leaderboard'>
+                  <NavLink  className="nav-item-other" to='/leaderboard'>
                     Leader Board
                   </NavLink>
                 </NavItem>
@@ -45,12 +45,12 @@ class NavBar extends Component {
                       />
                     </NavItem>
                     <NavItem>
-					  <button 
+					  <Button 
 						onClick={this.handleLogOut}
             className='logout-btn'
 					  >
 						Logout
-					  </button>
+					  </Button>
                     </NavItem>
 				  </div>
         		)}
@@ -58,7 +58,6 @@ class NavBar extends Component {
         );
     }
 } 
-console.log("setout",setAuthedUser)
 function mapStateToProps ({ users, authedUser }) {
     return {
       user:authedUser

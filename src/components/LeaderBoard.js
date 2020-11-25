@@ -59,7 +59,6 @@ function mapStateToProps({users, authedUser}){
           })
       }
   )
-console.log(usersArray)
   return {
       users: usersArray.sort((a,b) => b.score - a.score),
       authedUser
